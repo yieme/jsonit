@@ -1,4 +1,4 @@
-# jsonit
+# JsonIt
 
 Simplified JSONIC which is a JSON parser that isn't strict
 
