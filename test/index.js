@@ -6,7 +6,7 @@ var expect = require('chai').expect,
 
 
 describe('jsonit', function() {
-  var expected = JSON.stringify({ "op": "ok"})
+  var expected = JSON.stringify({ "op": "ok" })
   it('should return ' + expected, function(done) {
     var test = jsonit('ok')
     expect(JSON.stringify(test)).to.equal(expected)
@@ -15,7 +15,7 @@ describe('jsonit', function() {
 });
 
 describe('jsonit', function() {
-  var expected = JSON.stringify({ "you": "ok"})
+  var expected = JSON.stringify({ "you": "ok" })
   it('should return ' + expected, function(done) {
     var test = jsonit('ok', 'you')
     expect(JSON.stringify(test)).to.equal(expected)
