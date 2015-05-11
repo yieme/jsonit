@@ -17,7 +17,7 @@
 
 
 
-  /** Jsonit
+  /** JsonIt
    *  @constructor
    *  @param      {string} jsonit  - simplified JSONIC
    *  @param      {string} type    - optional type to assign
@@ -25,24 +25,23 @@
    *  @return     {object}
    */
   function jsonit(data, type, setType) {
-    if (typeof data !== 'string') {
+    if ('string' !== typeof data) {
       throw new JsonItError('Invalid JsonIt type: ' + typeof data)
     }
-    if (data === '') {
-      return {}
-    }
-    var result
-    try {
-      var colonPos = data.indexOf(':')
-      var commaPos = data.indexOf(',')
-      if (colonPos < 0 || (commaPos >= 0 && commaPos < colonPos)) {
-        if (setType) defaultType = setType
-        type = type || defaultType
-        data = type + ':' + data
+    var result = {}
+    if (data.length > 0) {
+      try {
+        var colonPos = data.indexOf(':')
+        var commaPos = data.indexOf(',')
+        if (colonPos < 0 || (commaPos >= 0 && commaPos < colonPos)) {
+          if (setType) defaultType = setType
+          type = type || defaultType
+          data = type + ':' + data
+        }
+        result = jsonic(data)
+      } catch(err) {
+        throw new JsonItError(err.message)
       }
-      result = jsonic(data)
-    } catch(err) {
-      throw new JsonItError(err.message)
     }
     return result
   }
