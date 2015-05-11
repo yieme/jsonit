@@ -1,6 +1,6 @@
 {
   "name": "jsonit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simplified JSONIC which is a JSON parser that isn't strict",
   "main": "index.js",
   "scripts": {
